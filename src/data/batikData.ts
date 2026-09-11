@@ -36,7 +36,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
     bgImage: "/Media/Mockup/Bledak_Anggrek_Hanger-BG.png",
     bentoImages: [
       "/Media/Mockup/Bledak_Anggrek_Hanger.jpg",
-      "/Media/Mockup/Bledak_Anggrek_Model_P.jpg",
+      "/Media/Mockup/Bledak_Anggrek_Model_P.webp",
       "/Media/Mockup/baju_P.jpg",
       "/Media/Mockup/baju_P.jpg"
     ],
@@ -53,7 +53,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
     },
     modelImages: [
       {
-        url: "/Media/Mockup/Bledak_Anggrek_Model_P.jpg",
+        url: "/Media/Mockup/Bledak_Anggrek_Model_P.webp",
         title: "Peragaan Busana Wanita",
         caption: "Kebaya & Gaun Motif Bledak Anggrek Sidoarjo"
       },

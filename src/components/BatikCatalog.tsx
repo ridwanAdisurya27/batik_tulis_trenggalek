@@ -7,13 +7,8 @@ import {
   ArrowLeft,
   Sparkles,
   MessageCircle,
-  BookOpen,
-  Camera,
-  Layers,
-  CheckCircle2,
-  Maximize2
 } from "lucide-react";
-import { BATIK_COLLECTION, BatikItem, ModelPhoto } from "../data/batikData";
+import { BATIK_COLLECTION, BatikItem } from "../data/batikData";
 import "./BatikCatalog.css";
 
 interface BatikCatalogProps {
