@@ -1,0 +1,87 @@
+# ============================================================
+#  .gitignore — Batik Tulis Trenggalek / Kage Experience
+#  Stack: Vite + React 18 + TypeScript
+# ============================================================
+
+
+# ------ Dependensi ------------------------------------------
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+
+# ------ Output Build ----------------------------------------
+dist/
+dist-ssr/
+build/
+out/
+
+
+# ------ Environment Variables (RAHASIA — jangan di-commit!) -
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.staging
+.env.test
+
+
+# ------ Cache & Logs ----------------------------------------
+.cache/
+.vite/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+
+# ------ Editor: VS Code -------------------------------------
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+
+# ------ Editor: JetBrains (WebStorm, IntelliJ) --------------
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+# ------ Sistem Operasi --------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+
+# ------ TypeScript ------------------------------------------
+*.tsbuildinfo
+
+
+# ------ Testing ---------------------------------------------
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+
+# ------ Misc ------------------------------------------------
+*.local
+.eslintcache
+.stylelintcache
