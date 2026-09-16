@@ -19,6 +19,51 @@
   transition: none !important;
 }
 
+@media (max-width: 768px) {
+  [data-rv], [data-rv="fade"], [data-rv="up"], .mask-line > span, .word {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.fx-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(5, 7, 10, 0.85);
+  border: 1px solid rgba(223, 231, 224, 0.25);
+  border-radius: 20px;
+  color: var(--bone, #dfe7e0);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+.fx-toggle-btn:hover {
+  border-color: rgba(223, 231, 224, 0.6);
+  background: rgba(10, 14, 18, 0.95);
+  transform: translateY(-2px);
+}
+.fx-toggle-btn.off {
+  color: var(--muted, #78837c);
+  border-color: rgba(223, 231, 224, 0.1);
+  background: rgba(5, 7, 10, 0.6);
+}
+
 :root{
   --ink:#05070a;          /* page black */
   --ink-2:#0a0e12;        /* raised black */
@@ -295,17 +340,17 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 .card:nth-child(1) .card-fr{
   background:
     linear-gradient(180deg,rgba(3,6,9,.04) 36%,rgba(3,6,9,.72) 100%),
-    url('secret-pathways-assets/generated/kage-approach.webp') center / cover no-repeat;
+    url('/mockup/Katalog.webp') center / cover no-repeat;
 }
 .card:nth-child(2) .card-fr{
   background:
     linear-gradient(180deg,rgba(3,6,9,.06) 36%,rgba(3,6,9,.74) 100%),
-    url('secret-pathways-assets/generated/kage-lantern-court.webp') center / cover no-repeat;
+    url('/mockup/Galeri.png') center / cover no-repeat;
 }
 .card:nth-child(3) .card-fr{
   background:
     linear-gradient(180deg,rgba(3,6,9,.05) 36%,rgba(3,6,9,.74) 100%),
-    url('secret-pathways-assets/generated/kage-moonwater.webp') center / cover no-repeat;
+    url('/mockup/testimoni.jpg') center / cover no-repeat;
 }
 .card-fr::after{ content:''; position:absolute; inset:0;
   background:linear-gradient(transparent 46%, rgba(4,6,9,.80)); pointer-events:none; }
@@ -892,6 +937,337 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   [data-rv]{ opacity:1 !important; transform:none !important; }
   .mask-line > span,.word{ opacity:1 !important; transform:none !important; }
 }
+/* ============================================================= Business Card (Kartu Nama) */
+.biz-card-scene {
+  margin: 40px 0 48px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.biz-card-wrapper {
+  width: 100%;
+  min-height: 280px;
+  position: relative;
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(14, 20, 26, 0.92) 0%, rgba(5, 7, 10, 0.96) 100%);
+  border: 1px solid rgba(223, 231, 224, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.biz-card {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.biz-card-side {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 40px;
+  border-radius: 20px;
+}
+
+/* Front Side: Visible by default, slides left & fades out on hover */
+.biz-card-front {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+}
+
+.biz-card-wrapper:hover .biz-card-front,
+.biz-card-wrapper:focus-within .biz-card-front,
+.biz-card-wrapper.is-flipped .biz-card-front {
+  opacity: 0;
+  transform: translateX(-50px);
+  pointer-events: none;
+}
+
+/* Back Side: Hidden by default, slides in from right & fades in on hover */
+.biz-card-back {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.biz-card-wrapper:hover .biz-card-back,
+.biz-card-wrapper:focus-within .biz-card-back,
+.biz-card-wrapper.is-flipped .biz-card-back {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Front Side Content Alignment - Centered Container */
+.biz-card-front-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.biz-card-left {
+  flex: 0 0 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 14px;
+  background: rgba(223, 231, 224, 0.04);
+  border-radius: 14px;
+  border: 1px solid rgba(223, 231, 224, 0.08);
+}
+
+.biz-card-logo {
+  width: 100%;
+  height: auto;
+  max-height: 110px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+}
+
+.biz-card-divider {
+  width: 1px;
+  height: 90px;
+  background: linear-gradient(to bottom, transparent, rgba(223, 231, 224, 0.2), transparent);
+}
+
+.biz-card-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.biz-card-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold, #c9a24a);
+  background: rgba(201, 162, 74, 0.12);
+  border: 1px solid rgba(201, 162, 74, 0.25);
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.biz-card-name {
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--bone, #dfe7e0);
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.biz-card-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--bone-dim, #aab4ad);
+  line-height: 1.45;
+}
+
+.biz-card-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--gold, #c9a24a);
+}
+
+.biz-card-phone {
+  font-weight: 500;
+  color: var(--ember, #ff5a3c);
+  letter-spacing: 0.05em;
+}
+
+.biz-card-flip-hint {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--muted, #78837c);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.biz-card-flip-icon {
+  font-size: 13px;
+  color: var(--gold, #c9a24a);
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.biz-card-wrapper:hover .biz-card-flip-icon {
+  transform: translateX(4px);
+}
+
+/* Back Side Content Alignment - Centered Link */
+.biz-card-wa-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 650px;
+  height: 100%;
+  padding: 16px 24px;
+  border-radius: 16px;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.biz-card-wa-link:hover {
+  background: rgba(223, 231, 224, 0.03);
+}
+
+.biz-card-qr-box {
+  flex-shrink: 0;
+  width: 140px;
+  height: 140px;
+  padding: 10px;
+  background: #dfe7e0;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(201, 162, 74, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s var(--ease-out, ease);
+}
+
+.biz-card-wa-link:hover .biz-card-qr-box {
+  transform: scale(1.05);
+}
+
+.biz-card-qr-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.biz-card-wa-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 8px;
+}
+
+.biz-card-wa-title {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--bone, #dfe7e0);
+  letter-spacing: -0.01em;
+}
+
+.biz-card-wa-sub {
+  font-size: 13px;
+  color: var(--bone-dim, #aab4ad);
+  line-height: 1.4;
+  max-width: 280px;
+}
+
+.biz-card-wa-btn {
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  background: var(--vermilion, #e0231c);
+  color: #ffffff;
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 16px rgba(224, 35, 28, 0.4);
+  transition: all 0.25s ease;
+}
+
+.biz-card-wa-link:hover .biz-card-wa-btn {
+  background: var(--ember, #ff5a3c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 90, 60, 0.5);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .biz-card-wrapper, .biz-card {
+    min-height: 360px;
+  }
+  .biz-card-front-content {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  .biz-card-left {
+    flex: 0 0 auto;
+    width: 150px;
+    padding: 10px;
+  }
+  .biz-card-logo {
+    max-height: 80px;
+  }
+  .biz-card-divider {
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(223, 231, 224, 0.18), transparent);
+  }
+  .biz-card-right {
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+  .biz-card-badge {
+    align-self: center;
+  }
+  .biz-card-name {
+    font-size: 18px;
+  }
+  .biz-card-info-item {
+    font-size: 12px;
+    justify-content: center;
+  }
+  .biz-card-side {
+    padding: 24px 16px;
+  }
+  .biz-card-wa-link {
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    padding: 12px;
+  }
+  .biz-card-wa-info {
+    align-items: center;
+    text-align: center;
+  }
+  .biz-card-qr-box {
+    width: 120px;
+    height: 120px;
+  }
+}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1078,28 +1454,28 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   </div>
   <div class="cards" id="cards">
     <article class="card" data-rv="up" data-view="0" data-cursor>
-      <div class="card-fr" data-frame>
+      <a href="#/katalog" class="card-fr" data-frame>
                 <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
         <i class="glow" style="--gx:80.2%; --gy:23.9%; --gr:22%; --gt:6.1s; --gt2:9.7s; --gc1:rgba(255,142,108,.50); --gc2:rgba(212,56,38,.24)"></i>
         <div class="card-lab"><b>Katalog</b><span class="jp">ꦧꦠꦶꦏ꧊</span></div>
-      </div>
+      </a>
       <div class="card-meta"><span>Katalog</span><span>01 / 03</span></div>
     </article>
     <article class="card" data-rv="up" data-view="1" data-cursor>
-      <div class="card-fr" data-frame>
+      <a href="#/katalog" class="card-fr" data-frame>
                 <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
         <i class="glow glow--flame" style="--gx:70.5%; --gy:47.2%; --gr:14%; --gt:3.7s; --gt2:5.3s; --gc1:rgba(255,198,124,.62); --gc2:rgba(226,118,40,.30)"></i>
         <div class="card-lab"><b>Galeri</b><span class="jp">ꦣꦫꦶ</span></div>
-      </div>
+      </a>
       <div class="card-meta"><span>Galeri</span><span>02 / 03</span></div>
     </article>
     <article class="card" data-rv="up" data-view="2" data-cursor>
-      <div class="card-fr" data-frame>
+      <a href="#/katalog" class="card-fr" data-frame>
                 <span class="card-ar"><svg viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg></span>
         <i class="glow" style="--gx:48.0%; --gy:16.8%; --gr:20%; --gt:7.3s; --gt2:11.2s; --gc1:rgba(255,138,104,.52); --gc2:rgba(208,54,36,.24)"></i>
-        <div class="card-lab"><b>Proses</b><span class="jp">ꦥꦿꦺꦴꦱꦺꦱ꧀</span></div>
-      </div>
-      <div class="card-meta"><span>Proses</span><span>03 / 03</span></div>
+        <div class="card-lab"><b>Testimoni</b><span class="jp">ꦥꦿꦺꦴꦱꦺꦱ꧀</span></div>
+      </a>
+      <div class="card-meta"><span>Testimoni</span><span>03 / 03</span></div>
     </article>
   </div>
 </section>
@@ -1121,12 +1497,67 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
       <img src="secret-pathways-assets/foreground/png/sakura-branch.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async">
     </span>
   </div>
-  <div class="eyebrow" data-rv="fade">Chapter 04 — Afterlight</div>
-  <h2 class="display" data-rv="up">Afterlight</h2>
-  <p class="body-lg" data-rv="up">The gate does not close behind you. Take the walk whenever the noise
-    gets loud — it is always the same path, and never the same light.</p>
+  <div class="eyebrow" data-rv="fade">Chapter 04 — Epilog</div>
+  <h2 class="display" data-rv="up">Epilog</h2>
+  <p class="body-lg" data-rv="up">Terima kasih telah mengikuti perjalanan spiritual dan budaya melalui galeri foto dan video ini. Semoga warisan leluhur ini terus hidup dalam ingatan dan kreasi kita. Jangan sungkan untuk kembali menjelajahi setiap sudut cerita kapan saja.</p>
+
+  <!-- Business Card (Kartu Nama) -->
+  <div class="biz-card-scene" data-rv="up">
+    <div class="biz-card-wrapper" tabindex="0" data-cursor>
+      <div class="biz-card">
+        <!-- Front Side -->
+        <div class="biz-card-side biz-card-front">
+          <div class="biz-card-front-content">
+            <div class="biz-card-left">
+              <img src="/branding/Logo.svg" alt="Logo Batik Tulis Murtini Trenggalek" class="biz-card-logo" />
+            </div>
+            <div class="biz-card-divider"></div>
+            <div class="biz-card-right">
+              <h3 class="biz-card-name">Batik Tulis Murtini Trenggalek</h3>
+              <div class="biz-card-info-item">
+                <svg class="biz-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>Jln. Raden Saleh no 21b Sumbergedong Trenggalek</span>
+              </div>
+              <div class="biz-card-info-item">
+                <svg class="biz-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span class="biz-card-phone">083833637482</span>
+              </div>
+              <div class="biz-card-flip-hint">
+                <span>Hover / Sentuh untuk WhatsApp</span> <span class="biz-card-flip-icon">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back Side -->
+        <div class="biz-card-side biz-card-back">
+          <a href="https://wa.me/6283833637482?text=Halo%2C%20Saya%20ingin%20memesan%20Batik%20Tulis" target="_blank" rel="noopener noreferrer" class="biz-card-wa-link" title="Buka Chat WhatsApp">
+            <div class="biz-card-qr-box">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Fwa.me%2F6283833637482%3Ftext%3DHalo%252C%2520Saya%2520ingin%2520memesan%2520Batik%2520Tulis&color=05070a&bgcolor=dfe7e0" alt="QR Code WhatsApp Batik Tulis Trenggalek" class="biz-card-qr-img" />
+            </div>
+            <div class="biz-card-wa-info">
+              <span class="biz-card-wa-title">Pesan via WhatsApp</span>
+              <span class="biz-card-wa-sub">Scan QR atau klik kartu ini untuk langsung memesan via WhatsApp.</span>
+              <div class="biz-card-wa-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>083833637482</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <a class="cta" href="#top" data-rv="fade" data-cursor>
-    <i></i><span>Begin the walk</span>
+    <i></i><span>Kembali</span>
     <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="#dfe7e0" stroke-width="1.3"/></svg>
   </a>
 </section>
@@ -2252,7 +2683,7 @@ const HI = qs('q', COARSE ? 'low' : 'high');
 const LOW = HI === 'low';
 const WANT_POST    = qs('post', '1') !== '0';
 const WANT_SHADOW  = qs('shadow', LOW ? '0' : '1') !== '0';
-const DPR_CAP      = qn('dpr', LOW ? 1.4 : 1.8);
+const DPR_CAP      = qn('dpr', isMobileOrAndroid() ? 1.0 : 1.25);
 /* the renderer trades resolution for frame rate on its own — the scene is
    fill-bound (five big alpha-blended veils plus a bloom chain), so pixels
    are the only knob worth turning on unknown hardware */
@@ -2705,74 +3136,55 @@ function placeMoon() {
 }
 
 function buildTorii() {
-  /* the weathering costs the gate a lot of its chroma, so the tint puts it
-     back: red lifted well past green and blue rather than a flat brightening,
-     or the vermilion comes out of the grade as brick */
-  const lac = surface(lib('lacquer', () => texLacquer()), [2, 2],
-    { color: hdr(1.72, 1.02, .94), roughness: .92, metalness: .05, normal: .75 });
-  const gold = new THREE.MeshStandardMaterial({ color: 0x7a5d2a, roughness: .50, metalness: .60 });
-  const g = new THREE.Group();
-  const BASE = .78, H = 8.2, SPAN = 3.55;
+  /* GAPURA JOGLO JAWA — Javanese Joglo Gate Structure */
+  const timber = surface(wallWood(), [3, 1.4], { color: 0x564b44, normal: 1.4 });
+  const post   = surface(postWood(), [1.1, 1.0], { color: 0x785a4a, normal: 1.05, metalness: .03 });
+  const gold   = new THREE.MeshStandardMaterial({ color: 0x8f6f2e, roughness: .42, metalness: .70 });
+  const rf     = lib('roof', () => texRoof());
+  const tileMat = surface(rf, [1, 1], { color: 0x9a3e28, roughness: .76, metalness: .08, normal: 1.5 }); /* Terracotta Genteng Jawa */
+  const paper  = new THREE.MeshBasicMaterial({ color: hdr(1.06, .48, .18), fog: true, toneMapped: false });
+  const grid   = new THREE.MeshBasicMaterial({ map: tx(texShoji()), transparent: true, depthWrite: false, fog: true });
 
+  const g = new THREE.Group();
+  const BASE = 0.5, H = 6.8, SPAN = 3.6;
+
+  /* 1. Stone Foundation / Umpak Base */
   [-1, 1].forEach(s => {
-    const col = new THREE.Mesh(new THREE.CylinderGeometry(.30, .38, H, 26), lac);
-    col.position.set(s * SPAN, BASE + H / 2, 0); col.castShadow = true; g.add(col);
-    const foot = new THREE.Mesh(new THREE.CylinderGeometry(.46, .50, .52, 26), gold);
-    foot.position.set(s * SPAN, BASE + .26, 0); foot.castShadow = true; g.add(foot);
-    const collar = new THREE.Mesh(new THREE.CylinderGeometry(.345, .345, .26, 26), gold);
-    collar.position.set(s * SPAN, BASE + H - 1.42, 0); g.add(collar);
-    /* the ornate bracket where the beams cross the column */
-    const br = new THREE.Mesh(new THREE.BoxGeometry(.86, .30, .86), gold);
-    br.position.set(s * SPAN, BASE + H - .72, 0); g.add(br);
-    const br2 = new THREE.Mesh(new THREE.BoxGeometry(.60, .52, .60), gold);
-    br2.position.set(s * SPAN, BASE + H - .34, 0); g.add(br2);
-    [-1, 1].forEach(d => {
-      const wing = new THREE.Mesh(new THREE.BoxGeometry(.24, .70, .18), gold);
-      wing.position.set(s * SPAN + d * .40, BASE + H - .62, .30); g.add(wing);
-      const wing2 = wing.clone(); wing2.position.z = -.30; g.add(wing2);
-    });
+    const umpak = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.7, 1.2), gold);
+    umpak.position.set(s * SPAN, BASE + 0.35, 0); umpak.castShadow = true; g.add(umpak);
+    const col = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.44, H, 16), post);
+    col.position.set(s * SPAN, BASE + 0.7 + H / 2, 0); col.castShadow = true; g.add(col);
   });
 
-  /* nuki — the straight beam that pierces the columns */
-  const nuki = new THREE.Mesh(new THREE.BoxGeometry(9.4, .52, .46), lac);
-  nuki.position.set(0, BASE + H - 2.15, 0); nuki.castShadow = true; g.add(nuki);
+  /* 2. Cross Beams & Sunduk (Balungan Gapura Terbuka) */
+  const architrave = new THREE.Mesh(new THREE.BoxGeometry(SPAN * 2.4, 0.45, 0.5), timber);
+  architrave.position.set(0, BASE + 0.7 + H - 0.4, 0); architrave.castShadow = true; g.add(architrave);
 
-  /* gakuzuka — the little strut at the centre */
-  const gak = new THREE.Mesh(new THREE.BoxGeometry(.46, 1.22, .40), lac);
-  gak.position.set(0, BASE + H + .10, 0); g.add(gak);
-  const gakG = new THREE.Mesh(new THREE.BoxGeometry(.60, .18, .50), gold);
-  gakG.position.set(0, BASE + H + .68, 0); g.add(gakG);
-
-  /* shimaki + kasagi — the two crowning beams, swept upward at the ends */
-  function beamPath(half, rise, power) {
-    const p = [];
-    for (let i = 0; i <= 26; i++) {
-      const u = i / 26 * 2 - 1;
-      p.push(new THREE.Vector3(u * half, Math.pow(Math.abs(u), power) * rise, 0));
-    }
-    return p;
+  /* 3. Tumpangsari (Stacked Wooden Beams supporting Roof) */
+  for (let lvl = 0; lvl < 3; lvl++) {
+    const bw = SPAN * 2.5 - lvl * 0.5;
+    const bh = BASE + 0.7 + H + lvl * 0.28;
+    const beam = new THREE.Mesh(new THREE.BoxGeometry(bw, 0.26, 0.5), timber);
+    beam.position.set(0, bh, 0); g.add(beam);
   }
-  const shimaki = new THREE.Mesh(sweepPoly(beamPath(5.05, .40, 2.6),
-    [[-.30, -.19], [.30, -.19], [.32, .06], [.28, .21], [-.28, .21], [-.32, .06]]), lac);
-  shimaki.position.set(0, BASE + H - .52, 0); shimaki.castShadow = true; g.add(shimaki);
 
-  const kasagi = new THREE.Mesh(sweepPoly(beamPath(5.85, .62, 2.4),
-    [[-.42, -.24], [.42, -.24], [.46, .04], [.30, .28], [-.30, .28], [-.46, .04]]), lac);
-  kasagi.position.set(0, BASE + H + .96, 0); kasagi.castShadow = true; g.add(kasagi);
-  /* a black lacquer cap along the top of the kasagi */
-  const cap = new THREE.Mesh(sweepPoly(beamPath(5.95, .62, 2.4),
-    [[-.48, .22], [.48, .22], [.48, .34], [-.48, .34]]),
-    new THREE.MeshStandardMaterial({ color: 0x120c0c, roughness: .42, metalness: .14 }));
-  cap.position.set(0, BASE + H + .96, 0); g.add(cap);
+  /* 4. Atap Joglo Penanggap (Lower Flared Roof Tier - Terracotta Tile) */
+  const roofLower = new THREE.Mesh(roofGeo(5.2, 3.8, 1.8, 1.8, 0.32, 0.28), tileMat);
+  roofLower.position.set(0, BASE + H + 1.2, 0); roofLower.castShadow = true; g.add(roofLower);
 
-  /* the gate stands at the foot of the flight, not over the court — small
-     enough that the hall keeps the top of the frame to itself */
-  /* The lowest thing on the gate is the foot of each column, and it starts
-     at BASE — so anchoring the group at y=0 left the whole torii hanging
-     BASE*scale above the court. Drop it by exactly that and the feet land. */
-  const GS = .72;
+  /* 5. Atap Joglo Brunjung / Tajug (Steep Upper Roof Tier - Terracotta Tile) */
+  const roofUpper = new THREE.Mesh(roofGeo(3.2, 2.4, 0.8, 3.4, 0.36, 0.10), tileMat);
+  roofUpper.position.set(0, BASE + H + 3.2, 0); roofUpper.castShadow = true; g.add(roofUpper);
+
+  /* 6. Puncak Mahkota / Mustaka Joglo */
+  const ridge = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.45, 0.6), tileMat);
+  ridge.position.set(0, BASE + H + 6.4, 0); g.add(ridge);
+  const mustaka = new THREE.Mesh(new THREE.ConeGeometry(0.5, 1.2, 4), gold);
+  mustaka.position.set(0, BASE + H + 7.1, 0); mustaka.rotation.y = Math.PI / 4; g.add(mustaka);
+
+  const GS = 0.78;
   g.position.set(0, -BASE * GS, -8.6); g.scale.setScalar(GS);
-  scene.add(g); WORLD.torii = g;
+  scene.add(g); WORLD.torii = g; WORLD.gapura = g;
 }
 
 function buildLantern(x, z, s, y) {
@@ -4031,7 +4443,22 @@ function fitAspect(p, t, fov) {
   p.y += nf * 1.1;
   return fov * (1 + nf * .40);
 }
+function isMobileOrAndroid() {
+  return window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 function applyCamera() {
+  if (isMobileOrAndroid()) {
+    RIG.smooth = 0;
+    RIG.mx = 0;
+    RIG.my = 0;
+    RIG.tmx = 0;
+    RIG.tmy = 0;
+    const c0 = CAM[0];
+    camera.position.set(c0.p[0], c0.p[1], c0.p[2]);
+    camera.lookAt(c0.t[0], c0.t[1], c0.t[2]);
+    if (Math.abs(camera.fov - c0.fov) > 1e-4) { camera.fov = c0.fov; camera.updateProjectionMatrix(); }
+    return;
+  }
   const N = CAM.length - 1;
   const u = clamp(RIG.smooth / N, 0, 1);
   curveP.getPoint(u, _p); curveT.getPoint(u, _t);
@@ -4641,7 +5068,7 @@ function render() {
   renderer.setRenderTarget(null);
   if (WANT_POST) {
     POST.comp.uniforms.uT.value = clock;
-    POST.comp.uniforms.uFade.value = fadeIn;
+    POST.comp.uniforms.uFade.value = isMobileOrAndroid() ? 1 : fadeIn;
     renderPost();
   }
 }
@@ -4651,7 +5078,7 @@ function frame(now) {
   const raw = (now - tPrev) / 1000 || 0;
   const dt = Math.min(raw, .05);              /* animation never jumps … */
   tPrev = now; clock += dt;
-  fadeIn = INTRO.t0 ? sat((now - INTRO.t0) / 700) : 1;
+  fadeIn = isMobileOrAndroid() ? 1 : (INTRO.t0 ? sat((now - INTRO.t0) / 700) : 1);
 
   if (!PERF.locked && clock > 2.2) {
     PERF.acc += raw; PERF.n++;      /* … but the governor reads the truth */
@@ -4727,9 +5154,31 @@ const JOBS = [
   }]
 ];
 
+let fxEnabled = true;
+function wireFxToggle() {
+  const btn = document.getElementById('toggle-fx-btn');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    fxEnabled = !fxEnabled;
+    btn.classList.toggle('off', !fxEnabled);
+    const label = btn.querySelector('.fx-label');
+    const icon = btn.querySelector('.fx-icon');
+    if (fxEnabled) {
+      if (label) label.textContent = 'Efek: ON';
+      if (icon) icon.textContent = '🌸';
+    } else {
+      if (label) label.textContent = 'Efek: OFF';
+      if (icon) icon.textContent = '🚫';
+    }
+    if (WORLD.rain) WORLD.rain.visible = fxEnabled;
+    if (WORLD.leaves && WORLD.leaves.mesh) WORLD.leaves.mesh.visible = fxEnabled;
+    if (WORLD.ripples) WORLD.ripples.forEach(r => r.visible = fxEnabled);
+  });
+}
+
 function boot() {
   makeGrain();
-  wireReveals(); wireForegroundStages(); wireNav(); wireHeroExit(); wireFocus(); wireCursor();
+  wireReveals(); wireForegroundStages(); wireNav(); wireHeroExit(); wireFocus(); wireCursor(); wireFxToggle();
   document.body.classList.add('is-locked');
   let i = 0;
   const step = () => {
@@ -4796,6 +5245,21 @@ function start() {
 if (document.readyState === 'complete' || document.readyState === 'interactive') setTimeout(boot, 0);
 else addEventListener('DOMContentLoaded', boot);
 })();
+</script>
+<button id="toggle-fx-btn" class="fx-toggle-btn" type="button" aria-label="Toggle Efek Three.js">
+  <span class="fx-icon">🌸</span>
+  <span class="fx-label">Efek: ON</span>
+</button>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const cardWrapper = document.querySelector('.biz-card-wrapper');
+  if (cardWrapper) {
+    cardWrapper.addEventListener('click', function(e) {
+      if (e.target.closest('a')) return;
+      cardWrapper.classList.toggle('is-flipped');
+    });
+  }
+});
 </script>
 </body>
 </html>

@@ -149,17 +149,6 @@ export const BatikDetail: React.FC<BatikDetailProps> = ({
               <span className="origin-dot" />
               <span>{item.origin}</span>
             </div>
-
-            <div className="detail-hero-highlights">
-              <div className="highlight-tag">
-                <span className="hl-k">Teknik</span>
-                <span className="hl-v">{item.details.technique}</span>
-              </div>
-              <div className="highlight-tag">
-                <span className="hl-k">Bahan</span>
-                <span className="hl-v">{item.details.material}</span>
-              </div>
-            </div>
           </div>
 
           {/* Center Showcase Stage: Product Image Spotlight Prominent */}

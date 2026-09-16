@@ -29,7 +29,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
   {
     id: "bledak-anggrek",
     name: "Bledak Anggrek",
-    price: 999999,
+    price: 450000,
     category: "Bledak",
     origin: "Desa Bledak, Sidoarjo & Pesisir Timur",
     image: "/Media/Batik/Bledak Anggrek.jpg",
@@ -37,8 +37,8 @@ export const BATIK_COLLECTION: BatikItem[] = [
     bentoImages: [
       "/Media/Mockup/Bledak_Anggrek_Hanger.jpg",
       "/Media/Mockup/Bledak_Anggrek_Model_P.webp",
-      "/Media/Mockup/baju_P.jpg",
-      "/Media/Mockup/baju_P.jpg"
+      "/Media/Mockup/Galeri.png",
+      "/Media/Mockup/Galeri.png"
     ],
     philosophySummary:
       "Memadukan kesucian latar putih bledak dengan keanggunan bunga anggrek yang menyimbolkan ketulusan, keindahan budi pekerti, dan ketangguhan hidup.",
@@ -48,7 +48,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
       technique: "Batik Tulis Canting Tembaga Halus (100% Manual)",
       material: "Mori Katun Primissima Organik Berkualitas Tinggi",
       dye: "Pewarna Alami & Pigmen Sintetis Berkualitas Ekspor",
-      dimensions: "240 cm × 105 cm",
+      dimensions: "220 cm × 105 cm",
       craftDuration: "5 – 6 Minggu Pengerjaan"
     },
     modelImages: [
@@ -58,7 +58,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
         caption: "Kebaya & Gaun Motif Bledak Anggrek Sidoarjo"
       },
       {
-        url: "/Media/Mockup/baju_P.jpg",
+        url: "/Media/Mockup/Galeri.png",
         title: "Detail Kebaya Modern",
         caption: "Paduan Kain Bledak dengan Kebaya Minimalis"
       }
@@ -67,7 +67,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
   {
     id: "bledak-merak",
     name: "Bledak Merak",
-    price: 999999,
+    price: 450000,
     category: "Bledak",
     origin: "Desa Bledak, Sidoarjo, Jawa Timur",
     image: "/Media/Batik/Bledak Merak.jpg",
@@ -75,8 +75,8 @@ export const BATIK_COLLECTION: BatikItem[] = [
     bentoImages: [
       "/Media/Mockup/bledak_merak_Hanger.jpg",
       "/Media/Mockup/Bledak_Merak_Model_P.jpg",
-      "/Media/Mockup/baju_P.jpg",
-      "/Media/Mockup/baju_P.jpg"
+      "/Media/Mockup/Galeri.png",
+      "/Media/Mockup/Galeri.png"
     ],
     philosophySummary:
       "Keanggunan merak berekor megah menyimbolkan kemuliaan, rasa percaya diri yang tenang, serta doa kemakmuran bagi pemakainya.",
@@ -86,7 +86,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
       technique: "Batik Tulis Halus Dua Sisi (Tembus Canting Rapi)",
       material: "Katun Primissima Halus Khusus Pesisir",
       dye: "Gradasi Multi-Warna Alami & Indigosol",
-      dimensions: "245 cm × 110 cm",
+      dimensions: "230 cm × 105 cm",
       craftDuration: "6 Minggu Pengerjaan"
     },
     modelImages: [
@@ -96,7 +96,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
         caption: "Tampilan Elegan Motif Merak Ekor Mengembang"
       },
       {
-        url: "/Media/Mockup/baju_P.jpg",
+        url: "/Media/Mockup/Galeri.png",
         title: "Siluet Busana Formal",
         caption: "Aplikasi Kain Bledak Merak pada Busana Pesta"
       }
@@ -105,7 +105,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
   {
     id: "parang-kesit",
     name: "Parang Kesit",
-    price: 999999,
+    price: 450000,
     category: "Keraton Klasik",
     origin: "Keraton Mataram (Yogyakarta & Surakarta)",
     image: "/Media/Batik/parang kesit.jpg",
@@ -114,7 +114,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
       "/Media/Mockup/parang kesit_Hanger.jpg",
       "/Media/Mockup/Parang Kesit_Model_P.jpg",
       "/Media/Mockup/Parang Kesit_Model_L.jpg",
-      "/Media/Mockup/baju_P.jpg"
+      "/Media/Mockup/Galeri.png"
     ],
     philosophySummary:
       "Pola diagonal ombak samudra dipadukan lung-lungan flora lincah, melambangkan keteguhan pantang menyerah dan keluwesan budi pekerti.",
@@ -124,7 +124,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
       technique: "Batik Tulis Keraton Pakem Klasik",
       material: "Katun Mori Sutra Primissima Keraton",
       dye: "Sogan Tradisional (Kayu Tingi, Jambal, Tegeran)",
-      dimensions: "250 cm × 105 cm",
+      dimensions: "226 cm × 102 cm",
       craftDuration: "7 – 8 Minggu Pengerjaan"
     },
     modelImages: [
@@ -143,7 +143,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
   {
     id: "satrio-manah",
     name: "Satrio Manah",
-    price: 999999,
+    price: 450000,
     category: "Keraton Klasik",
     origin: "Pura Mangkunegaran & Surakarta Hadiningrat",
     image: "/Media/Batik/isi timun satrio.jpg",
@@ -162,7 +162,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
       technique: "Batik Tulis Cecekan Halus Canting Nol",
       material: "Katun Primissima Halus Super",
       dye: "Pewarnaan Sogan Cokelat Mataram Alami",
-      dimensions: "240 cm × 105 cm",
+      dimensions: "220 cm × 114 cm",
       craftDuration: "6 Minggu Pengerjaan"
     },
     modelImages: [
@@ -186,7 +186,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
   {
     id: "truntum-garuda",
     name: "Truntum Garuda",
-    price: 999999,
+    price: 500000,
     category: "Keraton Klasik",
     origin: "Keraton Surakarta (Kanjeng Ratu Kencana)",
     image: "/Media/Batik/truntum garuda.jpg",
@@ -205,10 +205,10 @@ export const BATIK_COLLECTION: BatikItem[] = [
       technique: "Batik Tulis Truntum Rapat Canting Tembaga",
       material: "Katun Mori Bendera Primissima",
       dye: "Sogan Keraton Asli (Ekstrak Kulit Kayu Tingi)",
-      dimensions: "245 cm × 108 cm",
+      dimensions: "214 cm × 102 cm",
       craftDuration: "8 Minggu Pengerjaan"
     },
-    modelImages: [
+    modelImages: [ 
       {
         url: "/Media/Mockup/Truntum Garuda_Model_P.jpg",
         title: "Model Wanita Keraton",
@@ -224,7 +224,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
   {
     id: "kawung-bunga-cengkeh",
     name: "Kawung Bunga Cengkeh",
-    price: 999999,
+    price: 450000,
     category: "Trenggalek Khas",
     origin: "Trenggalek, Jawa Timur & Mataram Klasik",
     image: "/Media/Batik/Kawung Bunga Cengkeh.jpg",
@@ -233,7 +233,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
       "/Media/Mockup/kawung bunga cengkeh_Hanger.jpg",
       "/Media/Mockup/Kawung Bunga Cengkeh_Model_P.jpg",
       "/Media/Mockup/baju_L.jpg",
-      "/Media/Mockup/baju_P.jpg"
+      "/Media/Mockup/Galeri.png"
     ],
     philosophySummary:
       "Harmoni sakral antara kesucian alas Kawung dan aroma harum cengkeh rempah lokal Trenggalek, menyimbolkan kerja keras dan nama baik.",
@@ -243,7 +243,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
       technique: "Batik Tulis Kombinasi Ceplokan Trenggalek",
       material: "Katun Halus Sanforized",
       dye: "Pewarna Alam Daun & Kayu Rempah Lokal",
-      dimensions: "240 cm × 110 cm",
+      dimensions: "220 cm × 102 cm",
       craftDuration: "5 Minggu Pengerjaan"
     },
     modelImages: [
@@ -262,7 +262,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
   {
     id: "bledak-bunga-bunga",
     name: "Bledak Bunga-Bunga",
-    price: 999999,
+    price: 450000,
     category: "Bledak",
     origin: "Desa Bledak, Sidoarjo, Jawa Timur",
     image: "/Media/Batik/Bledak Bunga-Bunga.jpg",
@@ -270,8 +270,8 @@ export const BATIK_COLLECTION: BatikItem[] = [
     bentoImages: [
       "/Media/Mockup/bledak_bunga-bunga_Hanger.jpg",
       "/Media/Mockup/Bledak_Bunga-Bunga_Model_P.jpg",
-      "/Media/Mockup/baju_P.jpg",
-      "/Media/Mockup/baju_P.jpg"
+      "/Media/Mockup/Galeri.png",
+      "/Media/Mockup/Galeri.png"
     ],
     philosophySummary:
       "Hamparan flora mekar di atas dasar bledak terang, melambangkan kebersihan hati, keharuman silaturahmi, dan keberkahan hidup.",
@@ -281,7 +281,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
       technique: "Batik Tulis Bledakan Kontras Halus",
       material: "Katun Primissima Putih Gading Pilihan",
       dye: "Pewarna Sintetis Ramah Lingkungan & Fiksasi Alami",
-      dimensions: "240 cm × 105 cm",
+      dimensions: "220 cm × 102 cm",
       craftDuration: "5 Minggu Pengerjaan"
     },
     modelImages: [
@@ -291,7 +291,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
         caption: "Gaun Kasual Motif Bledak Bunga-Bunga"
       },
       {
-        url: "/Media/Mockup/baju_P.jpg",
+        url: "/Media/Mockup/Galeri.png",
         title: "Lookbook Kebaya Terang",
         caption: "Perpaduan Latar Terang Polos & Ornamen Flora"
       }
@@ -299,8 +299,8 @@ export const BATIK_COLLECTION: BatikItem[] = [
   },
   {
     id: "lapis-trenggalek",
-    name: "Lapis Trenggalek",
-    price: 999999,
+    name: "Lapis",
+    price: 450000,
     category: "Trenggalek Khas",
     origin: "Kabupaten Trenggalek, Jawa Timur",
     image: "/Media/Batik/Lapis.jpg",
@@ -319,7 +319,7 @@ export const BATIK_COLLECTION: BatikItem[] = [
       technique: "Batik Tulis Garis Geometris Canting Halus",
       material: "Katun Mori Primissima Super",
       dye: "Pewarnaan Sogan Cokelat Kayu & Ekstrak Daun",
-      dimensions: "240 cm × 105 cm",
+      dimensions: "230 cm × 102 cm",
       craftDuration: "4 – 5 Minggu Pengerjaan"
     },
     modelImages: [

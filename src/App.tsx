@@ -10,11 +10,10 @@ const KageLandingPage = React.lazy(
 );
 
 export function Scene({
-  currentView,
-  onOpenCatalog
+  currentView
 }: {
   currentView: "landing" | "catalog" | "detail";
-  onOpenCatalog: () => void;
+  onOpenCatalog?: () => void;
 }) {
   return (
     <div
@@ -39,17 +38,6 @@ export function Scene({
       </Suspense>
 
       {/* Floating Pill on Landing Page to visit Catalog */}
-      <button
-        type="button"
-        className="floating-catalog-trigger"
-        onClick={onOpenCatalog}
-        aria-label="Buka Katalog Batik Tulis Trenggalek"
-      >
-        <span className="floating-trigger-pulse" />
-        <span className="floating-trigger-text">Katalog Batik Tulis</span>
-        <span className="floating-trigger-badge">8 Motif</span>
-        <span className="floating-trigger-arrow">→</span>
-      </button>
     </div>
   );
 }

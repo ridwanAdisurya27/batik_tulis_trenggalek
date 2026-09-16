@@ -16,6 +16,22 @@ interface BatikCatalogProps {
   onSelectBatik?: (item: BatikItem) => void;
 }
 
+const CatalogCardImage: React.FC<{ src: string; alt: string }> = ({ src, alt }) => {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <div className={`batik-card-image-wrap ${loaded ? "is-loaded" : ""}`}>
+      <img
+        src={src}
+        alt={alt}
+        className="batik-card-image"
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setLoaded(true)}
+      />
+    </div>
+  );
+};
+
 export const BatikCatalog: React.FC<BatikCatalogProps> = ({
   onNavigateToLanding,
   onSelectBatik
@@ -97,6 +113,8 @@ export const BatikCatalog: React.FC<BatikCatalogProps> = ({
               src="/branding/Logo.svg"
               alt="Batik Tulis Trenggalek"
               className="catalog-brand-logo"
+              loading="lazy"
+              decoding="async"
             />
             <div className="catalog-brand-text">
               <span className="catalog-brand-title">Kage Batik Tulis</span>
@@ -129,7 +147,7 @@ export const BatikCatalog: React.FC<BatikCatalogProps> = ({
             <h1 className="catalog-headline">
               Katalog Karya Batik Tulis
             </h1>
-            <div className="catalog-kanji-stamp">図録・手業</div>
+            <div className="catalog-kanji-stamp">ꦧꦠꦶꦏ꧊・ꦠꦸꦭꦶꦱ꧊</div>
           </div>
 
           <p className="catalog-lead-text">
@@ -232,11 +250,9 @@ export const BatikCatalog: React.FC<BatikCatalogProps> = ({
                   style={{ cursor: "pointer" }}
                 >
                   <div className="batik-card-media-core">
-                    <img
+                    <CatalogCardImage
                       src={item.image}
                       alt={`Batik ${item.name}`}
-                      className="batik-card-image"
-                      loading="lazy"
                     />
                     <div className="batik-card-media-scrim" />
 
@@ -244,8 +260,6 @@ export const BatikCatalog: React.FC<BatikCatalogProps> = ({
                       <span className="batik-badge-dot" />
                       <span>{item.category}</span>
                     </div>
-
-                    <div className="batik-card-origin-tag">{item.origin}</div>
                   </div>
                 </div>
 
